@@ -47,12 +47,14 @@ public abstract class Kort {
 	@Override
 	public String toString() {
 		String header = String.format("%-20s %-20s %-20s %-20s\n", "Navn", "Kortnummer", "PIN-kode", "Status");
-		String information = String.format("%-20s %-20d %-20d %-20s\n", navn, kortnummer, pinkode, ((sperretKort) ? "Sperret": "Aktiv"));
+		String information = String.format("%-20s %-20d %-20d %-20s", navn, kortnummer, pinkode, ((sperretKort) ? "Sperret": "Aktiv"));
 		return header + information;
 	}
 	
 	public abstract boolean sjekkPIN(int pin);
 	
-	
+	void setSperretKort(boolean sperret) {
+		sperretKort = sperret;
+	}
 
 }
