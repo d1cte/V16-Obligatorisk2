@@ -36,9 +36,11 @@ public abstract class Kort {
 		return sperretKort;
 	}
 	
-	boolean isGyldigPIN(int pinkode) {
+	boolean isRiktigPIN(int pinkode) {
 		return((pinkode == this.pinkode) ? true : false);
 	}
+	
+	
 	
 	@Override
 	public String toString() {
