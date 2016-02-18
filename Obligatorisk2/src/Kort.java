@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 public abstract class Kort {
 	private String navn;
@@ -6,11 +7,13 @@ public abstract class Kort {
 	private int kortnummer;
 	private boolean sperretKort;
 	private static ArrayList<Integer> alleKortnummer = new ArrayList<>();
+	private GregorianCalendar datoOpprettet;
 	
 	Kort(String navn, int pinkode) {
 		this.navn = navn;
 		this.pinkode = pinkode;
 		sperretKort = false;
+		datoOpprettet = new GregorianCalendar();
 		setKortnummer();
 	}
 	
