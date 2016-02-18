@@ -1,26 +1,23 @@
 import java.util.ArrayList;
 
 public abstract class Kort {
-	private String fornavn;
-	private String etternavn;
+	private String navn;
 	private int pinkode;
 	private int kortnummer;
 	private boolean sperretKort;
 	private static ArrayList<Integer> alleKortnummer = new ArrayList<>();
 	
-	Kort(String fornavn, String etternavn, int pinkode) {
-		this.fornavn = fornavn;
-		this.etternavn = etternavn;
+	Kort(String navn, int pinkode) {
+		this.navn = navn;
 		this.pinkode = pinkode;
 		sperretKort = false;
 		setKortnummer();
 	}
 	
 	private void setKortnummer() {
-		// Genererer kortnummer med 8 siffer
+		// Kortnummer med 8 siffer
 		int kortnummer = (int)(Math.random() * (100000000 - 10000000) + 10000000);
 		
-		// Sjekker at kortnummeret ikke allerede eksisterer. 
 		while(alleKortnummer.contains(kortnummer)) {
 			kortnummer = (int)(Math.random() * (100000000 - 10000000) + 10000000);
 		}
@@ -29,7 +26,7 @@ public abstract class Kort {
 	}
 	
 	String getNavn() {
-		return fornavn + " " + etternavn;
+		return navn;
 	}
 	
 	boolean isSperret() {
@@ -38,8 +35,8 @@ public abstract class Kort {
 	
 	@Override
 	public String toString() {
-		String header = String.format("%-20s %-20s %-20s %-20s %-20s\n", "Fornavn", "Etternavn", "Kortnummer", "PIN-kode", "Status");
-		String information = String.format("%-20s %-20s %-20d %-20d %-20s\n", fornavn, etternavn, kortnummer, pinkode, ((sperretKort) ? "Sperret": "Aktiv"));
+		String header = String.format("%-20s %-20s %-20s %-20s\n", "Navn", "Kortnummer", "PIN-kode", "Status");
+		String information = String.format("%-20s %-20d %-20d %-20s\n", navn, kortnummer, pinkode, ((sperretKort) ? "Sperret": "Aktiv"));
 		return header + information;
 	}
 	
