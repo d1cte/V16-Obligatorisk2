@@ -12,5 +12,10 @@ public abstract class Kort {
 		this.pinkode = pinkode;
 		sperretKort = false;
 	}
+	
+	boolean isSperret() {
+		return sperretKort;
+	}
+	
 
 }
