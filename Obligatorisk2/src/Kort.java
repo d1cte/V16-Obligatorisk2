@@ -40,7 +40,9 @@ public abstract class Kort {
 		return((pinkode == this.pinkode) ? true : false);
 	}
 	
-	
+	GregorianCalendar getDatoOpprettet() {
+		return datoOpprettet;
+	}
 	
 	@Override
 	public String toString() {
