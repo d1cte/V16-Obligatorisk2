@@ -36,6 +36,10 @@ public abstract class Kort {
 		return sperretKort;
 	}
 	
+	boolean isGyldigPIN(int pinkode) {
+		return((pinkode == this.pinkode) ? true : false);
+	}
+	
 	@Override
 	public String toString() {
 		String header = String.format("%-20s %-20s %-20s %-20s\n", "Navn", "Kortnummer", "PIN-kode", "Status");
