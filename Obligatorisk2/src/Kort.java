@@ -13,9 +13,23 @@ public abstract class Kort {
 		sperretKort = false;
 	}
 	
+	String getNavn() {
+		return fornavn + " " + etternavn;
+	}
+	
 	boolean isSperret() {
 		return sperretKort;
 	}
+	
+	@Override
+	public String toString() {
+		String header = String.format("%-20s %-20s %-20s %-20s %-20s\n", "Fornavn", "Etternavn", "Kortnummer", "PIN-kode", "Status");
+		String information = String.format("%-20s %-20s %-20d %-20d %-20s\n", fornavn, etternavn, kortnummer, pinkode, ((sperretKort) ? "Sperret": "Aktiv"));
+		return header + information;
+	}
+	
+	public abstract boolean sjekkPIN(int pin);
+	
 	
 
 }
