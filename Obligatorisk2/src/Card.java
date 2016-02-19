@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
+import java.util.*;
 
 public abstract class Card {
 	private String name;
@@ -7,7 +7,7 @@ public abstract class Card {
 	private int cardNumber;
 	private boolean blockedCard;
 	private static ArrayList<Integer> allCardNumbers = new ArrayList<>();
-	private GregorianCalendar dateCreated;
+	private Calendar dateCreated;
 	
 	Card(String name, int pinCode) {
 		this.name = name;
@@ -39,7 +39,7 @@ public abstract class Card {
 		return((pinCode == this.pinCode) ? true : false);
 	}
 	
-	GregorianCalendar getDateCreated() {
+	Calendar getDateCreated() {
 		return dateCreated;
 	}
 	
