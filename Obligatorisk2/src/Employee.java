@@ -13,13 +13,21 @@ public class Employee extends Card {
 		if(this.isBlocked())
 			return false;
 		
+		if(this.officeHours())
+			System.out.println("Kontortid, pin-kode kreves ikke.");
+			return true;
+	
+		if(this.isCorrectPIN(pin))
+			return true;
+		
+		return false;
+	}
+	
+	public boolean officeHours() {
 		GregorianCalendar currentTime = new GregorianCalendar();
 		int dayOfWeek = currentTime.get(currentTime.DAY_OF_WEEK);
 		int hourOfDay = currentTime.get(currentTime.HOUR_OF_DAY);
 		if((dayOfWeek > 1 && dayOfWeek < 7) && (hourOfDay > 6 && hourOfDay < 18))
-			return true;
-	
-		if(this.isCorrectPIN(pin))
 			return true;
 		
 		return false;
