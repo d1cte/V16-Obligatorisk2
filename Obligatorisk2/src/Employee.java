@@ -13,10 +13,11 @@ public class Employee extends Card {
 		if(this.isBlocked())
 			return false;
 		
-		if(this.officeHours())
-			System.out.println("Kontortid, pin-kode kreves ikke.");
+		if(this.officeHours()) {
+			System.out.println("---------- Det er kontortid, pin-kode kreves ikke ----------");
 			return true;
-	
+		}
+		
 		if(this.isCorrectPIN(pin))
 			return true;
 		
