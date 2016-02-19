@@ -8,13 +8,14 @@ public class Employee extends Card {
 
 	@Override
 	public boolean checkPIN(int pin) {
-		// Usikker på om denne metoden skal returnere true HVIS pin skal sjekkes, 
-		// eller true om pin er sjekket og iorden. går utfra det siste.
+		/* Usikker på om denne metoden skal returnere true HVIS pin skal sjekkes, 
+		eller true om pin er sjekket og iorden. 
+		Jeg går utfra det siste. */ 
 		if(this.isBlocked())
 			return false;
 		
 		if(this.officeHours()) {
-			System.out.println("---------- Det er kontortid, pin-kode kreves ikke ----------");
+			// Ifølge min tolkning av oppgaveteksten så skal den returnere true i hele kontortiden uavhengig av pin
 			return true;
 		}
 		
