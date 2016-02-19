@@ -1,6 +1,6 @@
 import java.util.GregorianCalendar;
 
-public class Employee extends Card {
+public class Employee extends Card implements Constants {
 
 	public Employee(String name, int pinCode) {
 		super(name, pinCode);
@@ -33,6 +33,54 @@ public class Employee extends Card {
 			return true;
 		
 		return false;
+	}
+
+	@Override
+	public String setFirstName(String firstName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String setSurname(String surname) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String setFullName(String fullName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getFirstName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getSurname() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getFullName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public double calculateCredit() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double calculateBonus() {
+		
+		return 0;
 	}
 
 }
