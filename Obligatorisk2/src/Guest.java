@@ -1,29 +1,29 @@
 import java.util.GregorianCalendar;
 
-public class Gjest extends Kort {
+public class Guest extends Card {
 
-	public Gjest(String navn, int pinkode) {
-		super(navn, pinkode);
+	public Guest(String name, int pinCode) {
+		super(name, pinCode);
 	}
 
 	@Override
-	public boolean sjekkPIN(int pin) {
+	public boolean checkPIN(int pin) {
 		// Usikker på om denne metoden skal returnere true HVIS pin skal sjekkes, 
 		// eller true om pin er sjekket og iorden. går utfra det siste.
-		this.isUtgaatt();
+		this.isExpired();
 		
-		if(this.isRiktigPIN(pin) && !this.isSperret())
+		if(this.isCorrectPIN(pin) && !this.isBlocked())
 			return true;
 
 		return false;
 	}
 	
-	void isUtgaatt() {
-		// Sjekker om kortet er utgått, og sperrer kortet om nødvendig
+	void isExpired() {
+		// Checks if card is expired and blocks the card if needed
 		GregorianCalendar currentTime = new GregorianCalendar();
-		// 1 uke = 604800000 millisekunder.
-		if(currentTime.getTimeInMillis() - this.getDatoOpprettet().getTimeInMillis() > 604800000) 
-			this.setSperretKort(true);
+		// 1 week = 604800000 millisec.
+		if(currentTime.getTimeInMillis() - this.getDateCreated().getTimeInMillis() > 604800000) 
+			this.setBlockedCard(true);
 	}
 
 }

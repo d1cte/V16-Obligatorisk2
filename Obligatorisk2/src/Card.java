@@ -1,60 +1,59 @@
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
-public abstract class Kort {
-	private String navn;
-	private int pinkode;
-	private int kortnummer;
-	private boolean sperretKort;
-	private static ArrayList<Integer> alleKortnummer = new ArrayList<>();
-	private GregorianCalendar datoOpprettet;
+public abstract class Card {
+	private String name;
+	private int pinCode;
+	private int cardNumber;
+	private boolean blockedCard;
+	private static ArrayList<Integer> allCardNumbers = new ArrayList<>();
+	private GregorianCalendar dateCreated;
 	
-	Kort(String navn, int pinkode) {
-		this.navn = navn;
-		this.pinkode = pinkode;
-		sperretKort = false;
-		datoOpprettet = new GregorianCalendar();
-		setKortnummer();
+	Card(String name, int pinCode) {
+		this.name = name;
+		this.pinCode = pinCode;
+		blockedCard = false;
+		dateCreated = new GregorianCalendar();
+		setCardNumber();
 	}
 	
-	private void setKortnummer() {
-		// Kortnummer med 8 siffer
-		int kortnummer = (int)(Math.random() * (100000000 - 10000000) + 10000000);
+	private void setCardNumber() {
+		int cardNumber = (int)(Math.random() * (100000000 - 10000000) + 10000000);
 		
-		while(alleKortnummer.contains(kortnummer)) {
-			kortnummer = (int)(Math.random() * (100000000 - 10000000) + 10000000);
+		while(allCardNumbers.contains(cardNumber)) {
+			cardNumber = (int)(Math.random() * (100000000 - 10000000) + 10000000);
 		}
-		alleKortnummer.add(kortnummer);
-		this.kortnummer = kortnummer;
+		allCardNumbers.add(cardNumber);
+		this.cardNumber = cardNumber;
 	}
 	
-	String getNavn() {
-		return navn;
+	String getName() {
+		return name;
 	}
 	
-	boolean isSperret() {
-		return sperretKort;
+	boolean isBlocked() {
+		return blockedCard;
 	}
 	
-	boolean isRiktigPIN(int pinkode) {
-		return((pinkode == this.pinkode) ? true : false);
+	boolean isCorrectPIN(int pinCode) {
+		return((pinCode == this.pinCode) ? true : false);
 	}
 	
-	GregorianCalendar getDatoOpprettet() {
-		return datoOpprettet;
+	GregorianCalendar getDateCreated() {
+		return dateCreated;
 	}
 	
 	@Override
 	public String toString() {
 		String header = String.format("%-20s %-20s %-20s %-20s\n", "Navn", "Kortnummer", "PIN-kode", "Status");
-		String information = String.format("%-20s %-20d %-20d %-20s", navn, kortnummer, pinkode, ((sperretKort) ? "Sperret": "Aktiv"));
+		String information = String.format("%-20s %-20d %-20d %-20s", name, cardNumber, pinCode, ((blockedCard) ? "Sperret": "Aktiv"));
 		return header + information;
 	}
 	
-	public abstract boolean sjekkPIN(int pin);
+	public abstract boolean checkPIN(int pin);
 	
-	void setSperretKort(boolean sperret) {
-		sperretKort = sperret;
+	void setBlockedCard(boolean blockedCard) {
+		this.blockedCard = blockedCard;
 	}
 
 }

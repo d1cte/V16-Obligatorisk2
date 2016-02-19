@@ -1,16 +1,16 @@
 import java.util.GregorianCalendar;
 
-public class Ansatt extends Kort {
+public class Employee extends Card {
 
-	public Ansatt(String navn, int pinkode) {
-		super(navn, pinkode);
+	public Employee(String name, int pinCode) {
+		super(name, pinCode);
 	}
 
 	@Override
-	public boolean sjekkPIN(int pin) {
+	public boolean checkPIN(int pin) {
 		// Usikker på om denne metoden skal returnere true HVIS pin skal sjekkes, 
 		// eller true om pin er sjekket og iorden. går utfra det siste.
-		if(this.isSperret())
+		if(this.isBlocked())
 			return false;
 		
 		GregorianCalendar currentTime = new GregorianCalendar();
@@ -19,7 +19,7 @@ public class Ansatt extends Kort {
 		if((dayOfWeek > 1 && dayOfWeek < 7) && (hourOfDay > 6 && hourOfDay < 18))
 			return true;
 	
-		if(this.isRiktigPIN(pin))
+		if(this.isCorrectPIN(pin))
 			return true;
 		
 		return false;
