@@ -65,8 +65,6 @@ public abstract class Card {
 		return dateCreated;
 	}
 	
-	public abstract boolean checkPIN(int pin);
-	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -86,4 +84,5 @@ public abstract class Card {
 		return header + information;
 	}
 	
+	public abstract boolean checkPIN(int pin);
 }

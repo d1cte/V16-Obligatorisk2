@@ -1,13 +1,24 @@
 import java.util.GregorianCalendar;
 
 public class Employee extends Card implements Constants {
-
-	public Employee(String name, int pinCode) {
-		super(name, pinCode);
+	private double hourlyWage;
+	private double seniority;
+	
+	Employee(String fullName, int pinCode) {
+		super(fullName, pinCode);
 	}
 
+	public void setHourlyWage(double hourlyWage) {
+		this.hourlyWage = hourlyWage;
+	}
+
+	public void setSeniority(double seniority) {
+		this.seniority = seniority;
+	}
+	
+	
 	@Override
-	public boolean checkPIN(int pin) {
+	public boolean checkPIN(int pinCode) {
 		/* Usikker på om denne metoden skal returnere true HVIS pin skal sjekkes, 
 		eller true om pin er sjekket og iorden. 
 		Jeg går utfra det siste. */ 
@@ -19,7 +30,7 @@ public class Employee extends Card implements Constants {
 			return true;
 		}
 		
-		if(this.isCorrectPIN(pin))
+		if(this.isCorrectPIN(pinCode))
 			return true;
 		
 		return false;
@@ -34,42 +45,8 @@ public class Employee extends Card implements Constants {
 		
 		return false;
 	}
+	
 
-	@Override
-	public String setFirstName(String firstName) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String setSurname(String surname) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String setFullName(String fullName) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getFirstName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getSurname() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getFullName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public double calculateCredit() {
@@ -83,5 +60,12 @@ public class Employee extends Card implements Constants {
 		return 0;
 	}
 
+	public double getHourlyWage() {
+		return hourlyWage;
+	}
+	
+	public double getSeniority() {
+		return seniority;
+	}
 }
 

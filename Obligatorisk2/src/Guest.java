@@ -2,17 +2,17 @@ import java.util.GregorianCalendar;
 
 public class Guest extends Card {
 
-	public Guest(String name, int pinCode) {
-		super(name, pinCode);
+	public Guest(String fullName, int pinCode) {
+		super(fullName, pinCode);
 	}
 
 	@Override
-	public boolean checkPIN(int pin) {
+	public boolean checkPIN(int pinCode) {
 		// Usikker på om denne metoden skal returnere true HVIS pin skal sjekkes, 
 		// eller true om pin er sjekket og iorden. går utfra det siste.
 		this.isExpired();
 		
-		if(this.isCorrectPIN(pin) && !this.isBlocked())
+		if(this.isCorrectPIN(pinCode) && !this.isBlocked())
 			return true;
 
 		return false;
