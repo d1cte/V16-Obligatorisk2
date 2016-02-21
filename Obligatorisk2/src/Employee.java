@@ -1,11 +1,14 @@
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Employee extends Card implements Constants {
 	private double hourlyWage;
 	private double seniority;
 	
-	Employee(String fullName, int pinCode) {
+	Employee(String fullName, int pinCode, double hourlyWage, double seniority) {
 		super(fullName, pinCode);
+		setSeniority(seniority);
+		setHourlyWage(hourlyWage);
 	}
 
 	public void setHourlyWage(double hourlyWage) {
@@ -15,7 +18,6 @@ public class Employee extends Card implements Constants {
 	public void setSeniority(double seniority) {
 		this.seniority = seniority;
 	}
-	
 	
 	@Override
 	public boolean checkPIN(int pinCode) {
@@ -38,26 +40,22 @@ public class Employee extends Card implements Constants {
 	
 	public boolean officeHours() {
 		GregorianCalendar currentTime = new GregorianCalendar();
-		int dayOfWeek = currentTime.get(currentTime.DAY_OF_WEEK);
-		int hourOfDay = currentTime.get(currentTime.HOUR_OF_DAY);
+		int dayOfWeek = currentTime.get(Calendar.DAY_OF_WEEK);
+		int hourOfDay = currentTime.get(Calendar.HOUR_OF_DAY);
 		if((dayOfWeek > 1 && dayOfWeek < 7) && (hourOfDay > 6 && hourOfDay < 18))
 			return true;
 		
 		return false;
 	}
-	
-
 
 	@Override
 	public double calculateCredit() {
-		// TODO Auto-generated method stub
-		return 0;
+		return credit * hourlyWage;
 	}
 
 	@Override
 	public double calculateBonus() {
-		
-		return 0;
+		return bonus * seniority;
 	}
 
 	public double getHourlyWage() {

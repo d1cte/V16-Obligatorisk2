@@ -1,6 +1,6 @@
 
 public interface Constants {
-	public double creditt = 1000;
+	public double credit = 1000;
 	public double bonus = 1000;
 	
 	public abstract void setFirstName(String firstName);
