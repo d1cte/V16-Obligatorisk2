@@ -1,9 +1,9 @@
 
 public interface Constants {
 	
-	public abstract String setFirstName(String firstName);
-	public abstract String setSurname(String surname);
-	public abstract String setFullName(String fullName);
+	public abstract void setFirstName(String firstName);
+	public abstract void setSurname(String surname);
+	public abstract void setFullName(String fullName);
 	
 	public abstract String getFirstName();
 	public abstract String getSurname();
