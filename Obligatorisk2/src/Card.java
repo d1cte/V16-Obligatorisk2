@@ -12,7 +12,7 @@ public abstract class Card {
 	private Calendar dateCreated;
 	
 	Card(String fullName, int pinCode) {
-		setName(fullName);
+		setFullName(fullName);
 		this.pinCode = pinCode;
 		blockedCard = false;
 		dateCreated = new GregorianCalendar();
@@ -29,9 +29,43 @@ public abstract class Card {
 		this.cardNumber = cardNumber;
 	}
 	
-	public String getName() {
-		return fullName;
+	public void setBlockedCard(boolean blockedCard) {
+		this.blockedCard = blockedCard;
 	}
+	
+	public void setFullName(String fullName) {
+		String[] allNames = fullName.split(" ");
+		
+		// In case given name (firstName) is made up of several names, like "Tor Even"
+		String firstName = "";
+		for(int j = 0; j < allNames.length - 1; j++)
+			firstName += allNames[j] + " ";
+		
+		setFirstName(firstName);
+		setSurname(allNames[allNames.length - 1]);
+	}
+	
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+	
+	public boolean isBlocked() {
+		return blockedCard;
+	}
+	
+	public boolean isCorrectPIN(int pinCode) {
+		return((pinCode == this.pinCode) ? true : false);
+	}
+	
+	public Calendar getDateCreated() {
+		return dateCreated;
+	}
+	
+	public abstract boolean checkPIN(int pin);
 	
 	public String getFirstName() {
 		return firstName;
@@ -40,17 +74,9 @@ public abstract class Card {
 	public String getSurname() {
 		return surname;
 	}
-	
-	boolean isBlocked() {
-		return blockedCard;
-	}
-	
-	boolean isCorrectPIN(int pinCode) {
-		return((pinCode == this.pinCode) ? true : false);
-	}
-	
-	Calendar getDateCreated() {
-		return dateCreated;
+
+	public String getFullName() {
+		return fullName;
 	}
 	
 	@Override
@@ -60,22 +86,4 @@ public abstract class Card {
 		return header + information;
 	}
 	
-	public abstract boolean checkPIN(int pin);
-	
-	void setBlockedCard(boolean blockedCard) {
-		this.blockedCard = blockedCard;
-	}
-	
-	public void setName(String fullName) {
-		String[] allNames = fullName.split(" ");
-		surname = allNames[allNames.length - 1];
-		
-		// In case given name (firstName) is made up of several names, like "Tor Even"
-		String firstName = "";
-		for(int j = 0; j < allNames.length - 1; j++)
-			firstName += allNames[j] + " ";
-		
-		this.firstName = firstName;
-	}
-
 }
