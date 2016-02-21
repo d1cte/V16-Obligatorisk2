@@ -6,7 +6,7 @@ public class CardTest {
 
 		ArrayList<Card> cardArray = new ArrayList<>();
 		Card k1 = new Employee("Ole Olsen", 1234);
-		Card k2 = new Guest("Marit Olsen", 9999);
+		Card k2 = new Guest("Marit Sofi Olsen", 9999);
 		Card k3 = new Guest("Marit Olsen", 4444);
 		
 		cardArray.add(k1);

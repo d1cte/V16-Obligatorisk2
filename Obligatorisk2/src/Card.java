@@ -38,11 +38,12 @@ public abstract class Card {
 		
 		// In case given name (firstName) is made up of several names, like "Tor Even"
 		String firstName = "";
-		for(int j = 0; j < allNames.length - 1; j++)
-			firstName += allNames[j] + " ";
+		for(int i = 0; i < allNames.length - 1; i++)
+			firstName += allNames[i] + " ";
 		
 		setFirstName(firstName);
 		setSurname(allNames[allNames.length - 1]);
+		this.fullName = firstName + surname;
 	}
 	
 	public void setFirstName(String firstName) {
