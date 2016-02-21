@@ -5,10 +5,10 @@ public class Employee extends Card implements Constants {
 	private double hourlyWage;
 	private double seniority;
 	
-	Employee(String fullName, int pinCode, double hourlyWage, double seniority) {
+	Employee(String fullName, int pinCode) {
 		super(fullName, pinCode);
-		setSeniority(seniority);
-		setHourlyWage(hourlyWage);
+		setSeniority(1);
+		setHourlyWage(200);
 	}
 
 	public void setHourlyWage(double hourlyWage) {
@@ -65,5 +65,13 @@ public class Employee extends Card implements Constants {
 	public double getSeniority() {
 		return seniority;
 	}
+
+	@Override
+	public String toString() {
+		String header = String.format("%-20s %-20s %-20s %-20s %-20s %-20s\n", "Navn", "Kortnummer", "PIN-kode", "Status", "Hourly Wage", "Seniority");
+		String information = String.format("%-20s %-20d %-20d %-20s %-20.2f %-20.2f", getFullName(), getCardNumber(), getPinCode(), ((isBlocked()) ? "Sperret": "Aktiv"), hourlyWage, seniority);
+		return header + information;
+	}
+
 }
 

@@ -77,6 +77,14 @@ public abstract class Card {
 		return fullName;
 	}
 	
+	public int getCardNumber() {
+		return cardNumber;
+	}
+	
+	public int getPinCode() {
+		return pinCode;
+	}
+	
 	@Override
 	public String toString() {
 		String header = String.format("%-20s %-20s %-20s %-20s\n", "Navn", "Kortnummer", "PIN-kode", "Status");
