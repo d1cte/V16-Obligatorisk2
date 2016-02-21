@@ -50,12 +50,12 @@ public class Employee extends Card implements Constants {
 
 	@Override
 	public double calculateCredit() {
-		return credit * hourlyWage;
+		return CREDIT * hourlyWage;
 	}
 
 	@Override
 	public double calculateBonus() {
-		return bonus * seniority;
+		return BONUS * seniority;
 	}
 
 	public double getHourlyWage() {
