@@ -97,7 +97,9 @@ public abstract class Card implements Comparable<Card>{
 	
 	@Override
 	public int compareTo(Card c) {
-
-		return 0;
+		if(getSurname().compareTo(c.getSurname()) != 0)
+			return getSurname().compareTo(c.getSurname());
+		else
+			return getFirstName().compareTo(c.getFirstName());
 	}
 }
