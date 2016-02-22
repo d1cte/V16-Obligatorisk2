@@ -42,7 +42,7 @@ public class Employee extends Card implements Constants {
 		GregorianCalendar currentTime = new GregorianCalendar();
 		int dayOfWeek = currentTime.get(Calendar.DAY_OF_WEEK);
 		int hourOfDay = currentTime.get(Calendar.HOUR_OF_DAY);
-		if((dayOfWeek > 1 && dayOfWeek < 7) && (hourOfDay > 6 && hourOfDay < 18))
+		if((dayOfWeek > 1 && dayOfWeek < 7) && (hourOfDay > 6 && hourOfDay < 17))
 			return true;
 		
 		return false;
@@ -68,7 +68,7 @@ public class Employee extends Card implements Constants {
 
 	@Override
 	public String toString() {
-		String header = String.format("%-20s %-20s %-20s %-20s %-20s %-20s\n", "Navn", "Kortnummer", "PIN-kode", "Status", "Hourly Wage", "Seniority");
+		String header = String.format("%-20s %-20s %-20s %-20s %-20s %-20s\n", "Navn", "Kortnummer", "PIN-kode", "Status", "Timelønn", "Ansenitet");
 		String information = String.format("%-20s %-20d %-20d %-20s %-20.2f %-20.2f", getFullName(), getCardNumber(), getPinCode(), ((isBlocked()) ? "Sperret": "Aktiv"), hourlyWage, seniority);
 		return header + information;
 	}
