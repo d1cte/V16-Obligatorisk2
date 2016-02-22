@@ -41,9 +41,9 @@ public abstract class Card {
 		for(int i = 0; i < allNames.length - 1; i++)
 			firstName += allNames[i] + " ";
 		
-		setFirstName(firstName);
+		setFirstName(firstName.trim());
 		setSurname(allNames[allNames.length - 1]);
-		this.fullName = firstName + surname;
+		this.fullName = this.firstName + " " + surname;
 	}
 	
 	public void setFirstName(String firstName) {
