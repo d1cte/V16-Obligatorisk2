@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.*;
 
-public abstract class Card {
+public abstract class Card implements Comparable<Card>{
 	private String fullName;
 	private String firstName;
 	private String surname;
@@ -94,4 +94,10 @@ public abstract class Card {
 	}
 	
 	public abstract boolean checkPIN(int pin);
+	
+	@Override
+	public int compareTo(Card c) {
+
+		return 0;
+	}
 }
