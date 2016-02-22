@@ -20,8 +20,12 @@ public class CardTest {
 			System.out.println("Kode 9999 er " + (card.checkPIN(9999) ? "gyldig": "ugyldig"));
 			System.out.println("Kode 4444 er " + (card.checkPIN(4444) ? "gyldig": "ugyldig"));
 			System.out.println("--------------------------");
+			
 		}
-
+		System.out.println("Clone:");
+		Card k4 = (Card)k1.clone();
+		System.out.println(k4);
+		
 		
 	
 	}

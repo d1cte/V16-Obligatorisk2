@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.*;
 
-public abstract class Card implements Comparable<Card>{
+public abstract class Card implements Cloneable, Comparable<Card>{
 	private String fullName;
 	private String firstName;
 	private String surname;
@@ -102,4 +102,19 @@ public abstract class Card implements Comparable<Card>{
 		else
 			return getFirstName().compareTo(c.getFirstName());
 	}
+
+	@Override
+	public Object clone() {
+		try {
+		// Shallow copy
+		Card cardClone = (Card)super.clone();
+		// Deep copy on dateCreated
+		cardClone.dateCreated = (Calendar)(dateCreated.clone());
+		return cardClone;
+		}
+		catch (CloneNotSupportedException ex) {
+			return null;
+		}
+	}
+
 }
